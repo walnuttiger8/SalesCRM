@@ -7,7 +7,9 @@ namespace Domain.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
+        public Guid ContactDataId { get; set; }
         public ContactData ContactData { get; set; }
+        public Guid CompanyId { get; set; }
         public virtual Company Company { get; set; }
         public string Comment { get; set; }
 
