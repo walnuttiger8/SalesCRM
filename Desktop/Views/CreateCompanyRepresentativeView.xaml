@@ -1,0 +1,45 @@
+﻿<Window x:Class="Desktop.Views.CreateCompanyRepresentativeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop.Views"
+        xmlns:vm="clr-namespace:Desktop.ViewModels"
+        mc:Ignorable="d"
+        Title="Добавление лица-представителя" Height="490" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Base/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:CreateCompanyRepresentativeViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Margin="120 0">
+            <TextBlock Style="{StaticResource title}">Регистрация представителя</TextBlock>
+
+            <TextBlock Style="{StaticResource label}">Компания</TextBlock>
+            <ComboBox Style="{StaticResource inputText}" ItemsSource="{Binding Companies}" DisplayMemberPath="Name" SelectedIndex="0" SelectedItem="{Binding Company}"></ComboBox>
+
+            <TextBlock Style="{StaticResource label}">Фамилия</TextBlock>
+            <TextBox Text="{Binding Path=LastName}" Style="{StaticResource inputText}"></TextBox>
+
+            <TextBlock Style="{StaticResource label}">Имя</TextBlock>
+            <TextBox Text="{Binding Path=FirstName}" Style="{StaticResource inputText}"></TextBox>
+
+            <TextBlock Style="{StaticResource label}">Отчество</TextBlock>
+            <TextBox Text="{Binding Path=MiddleName}" Style="{StaticResource inputText}"></TextBox>
+
+            <TextBlock Style="{StaticResource label}">Контактные данные</TextBlock>
+            <TextBox Text="{Binding Path=ContactData.Data}" Style="{StaticResource inputText}"></TextBox>
+
+            <TextBlock Style="{StaticResource label}">Комментарий</TextBlock>
+            <TextBox Text="{Binding Path=Comment}" Style="{StaticResource multilineText}"></TextBox>
+
+            <Button Style="{StaticResource inputButton}" Click="Button_Click">Добавить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

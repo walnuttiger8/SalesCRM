@@ -8,6 +8,5 @@ namespace Domain.Models
         public string Comment { get; set; }
         public ContactType ContactType { get; set; }
         public CompanyRepresentative CompanyRepresentative { get; set; }
-        public User User { get; set; }
     }
 }

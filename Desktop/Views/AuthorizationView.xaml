@@ -1,0 +1,38 @@
+﻿<Window x:Class="Desktop.Views.AuthorizationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop.Views"
+        xmlns:vm="clr-namespace:Desktop.ViewModels"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Base/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:AuthorizationViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <StackPanel Margin="120 0">
+            <TextBlock Style="{StaticResource title}">Авторизация</TextBlock>
+
+            <TextBlock Style="{StaticResource label}">Логин</TextBlock>
+            <TextBox Text="{Binding Path=Login}" Style="{StaticResource inputText}"></TextBox>
+
+            <TextBlock Style="{StaticResource label}">Пароль</TextBlock>
+            <PasswordBox x:Name="passwordBox" Style="{StaticResource inputText}"></PasswordBox>
+
+            <Button x:Name="signupButton" Click="signupButton_Click" Style="{StaticResource inputButton}">Войти</Button>
+
+            <TextBlock x:Name="registerLink" Style="{StaticResource linkLabel}" HorizontalAlignment="Center" Margin="0 30">Зарегистрироваться</TextBlock>
+
+        </StackPanel>
+    </Grid>
+</Window>

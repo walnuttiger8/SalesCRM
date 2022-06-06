@@ -6,12 +6,18 @@ namespace Desktop.ViewModels
     public class CompanyRepresentativeViewModel : ViewModelBase
     {
         public CompanyRepresentative CompanyRepresentative { get; set; }
-        public ContactDataViewModel ContactDataViewModel { get; set; }
+
+
+        public CompanyRepresentativeViewModel()
+        {
+            CompanyRepresentative = new CompanyRepresentative();
+            var contactData = new ContactData();
+            CompanyRepresentative.ContactData = contactData;
+        }
 
         public CompanyRepresentativeViewModel(CompanyRepresentative companyRepresentative)
         {
             CompanyRepresentative = companyRepresentative;
-            ContactDataViewModel = new ContactDataViewModel(companyRepresentative.ContactData);
         }
 
 
@@ -62,6 +68,31 @@ namespace Desktop.ViewModels
             {
                 CompanyRepresentative.Comment = value;
                 OnPropertyChanged("MiddleName");
+            }
+        }
+        public Company Company
+        {
+            get
+            {
+                return CompanyRepresentative.Company;
+            }
+            set
+            {
+                CompanyRepresentative.Company = value;
+                OnPropertyChanged("MiddleName");
+            }
+        }
+
+        public ContactData ContactData
+        {
+            get
+            {
+                return CompanyRepresentative.ContactData;
+            }
+            set
+            {
+                CompanyRepresentative.ContactData = value;
+                OnPropertyChanged("ContactData");
             }
         }
     }

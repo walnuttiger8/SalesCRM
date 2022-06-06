@@ -6,10 +6,19 @@
         xmlns:vm="clr-namespace:Desktop.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Base/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <StackPanel>
-            <TextBox Margin="55" Text="{Binding Path=Name}">
-            </TextBox>
+        <StackPanel Margin="120 0">
+            <Button x:Name="addCompanyButton" Style="{StaticResource inputButton}" Click="addCompanyButton_Click">Добавить компанию</Button>
+            <Button x:Name="addCompanyRepresentativeButton" Style="{StaticResource inputButton}" Click="addCompanyRepresentativeButton_Click">Добавить лицо-представителя</Button>
+            <Button x:Name="addContactButton" Style="{StaticResource inputButton}" Click="addContactButton_Click">Добавить взаимодействие</Button>
         </StackPanel>
     </Grid>
 </Window>
