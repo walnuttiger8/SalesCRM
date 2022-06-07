@@ -19,6 +19,7 @@
             <Button x:Name="addCompanyButton" Style="{StaticResource inputButton}" Click="addCompanyButton_Click">Добавить компанию</Button>
             <Button x:Name="addCompanyRepresentativeButton" Style="{StaticResource inputButton}" Click="addCompanyRepresentativeButton_Click">Добавить лицо-представителя</Button>
             <Button x:Name="addContactButton" Style="{StaticResource inputButton}" Click="addContactButton_Click">Добавить взаимодействие</Button>
+            <Button x:Name="showCompaniesButton" Style="{StaticResource inputButton}" Click="showCompaniesButton_Click">Компании</Button>
         </StackPanel>
     </Grid>
 </Window>

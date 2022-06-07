@@ -4,8 +4,8 @@ using Domain.Models;
 
 namespace Application.UseCases.CompanyUseCases
 {
-    public class CreateCompany : CreateModelUseCase<Company>
+    public class CreateCompany : CreateModelUseCase<Domain.Models.Company>
     {
-        public CreateCompany(IRepository<Company> repository) : base(repository) { }
+        public CreateCompany(IRepository<Domain.Models.Company> repository) : base(repository) { }
     }
 }

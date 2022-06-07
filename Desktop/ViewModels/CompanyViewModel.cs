@@ -14,6 +14,21 @@ namespace Desktop.ViewModels
         public CompanyViewModel()
         {
             Company = new Company();
+            //{
+            //    Name = @"ООО ""Олег строй""",
+            //    Description = "Строим бани и машины",
+            //    INN = "1234556712",
+            //    Comment = "Оценка 4 за ТА",
+            //    CompanyRepresentatives = new List<CompanyRepresentative>()
+            //    {
+            //        new CompanyRepresentative()
+            //        {
+            //            FirstName = "Vladimir",
+            //            LastName = "Korneplod",
+            //            MiddleName = "Vladimirovich",
+            //        }
+            //    }
+            //};
             CompanyRepresentativeViewModels = new List<CompanyRepresentativeViewModel>();
         }
 
@@ -70,6 +85,18 @@ namespace Desktop.ViewModels
             {
                 Company.Comment = value;
                 OnPropertyChanged("Comment");
+            }
+        }
+        public List<CompanyRepresentative> CompanyRepresentatives 
+        { 
+            get
+            {
+                return Company.CompanyRepresentatives;
+            }
+            set
+            {
+                Company.CompanyRepresentatives = value;
+                OnPropertyChanged("CompanyRepresentatives");
             }
         }
     }

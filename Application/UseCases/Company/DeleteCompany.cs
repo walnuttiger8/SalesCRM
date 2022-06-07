@@ -4,9 +4,9 @@ using Domain.Models;
 
 namespace Application.UseCases.DeleteCompany
 {
-    public class DeleteCompany : DeleteModelUseCase<Company>
+    public class DeleteCompany : DeleteModelUseCase<Domain.Models.Company>
     {
-        public DeleteCompany(IRepository<Company> repository) : base(repository)
+        public DeleteCompany(IRepository<Domain.Models.Company> repository) : base(repository)
         {
         }
     }

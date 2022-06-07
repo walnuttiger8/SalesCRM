@@ -11,6 +11,7 @@ using Application.Repository.Base;
 using Application.UseCases.CompanyUseCases;
 using Application.UseCases.CompanyRepresentativeUseCases;
 using Application.UseCases.ContactUseCases;
+using Application.UseCases.Company;
 
 namespace Desktop
 {
@@ -66,6 +67,15 @@ namespace Desktop
             var companyRepresentatives = _companyRepresentativeRepository.GetAll();
             var model = new CreateContactViewModel(companyRepresentatives.ToList());
             var view = new CreateContactView(model, useCase);
+
+            view.Show();
+        }
+
+        private void showCompaniesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var useCase = new GetCompany(_companyRepository);
+            var model = new CompaniesViewModel(_companyRepository.GetAll().ToList());
+            var view = new CompaniesView(model, _companyRepository);
 
             view.Show();
         }

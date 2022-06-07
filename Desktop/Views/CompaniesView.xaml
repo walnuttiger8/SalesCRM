@@ -1,0 +1,49 @@
+﻿<Window x:Class="Desktop.Views.CompaniesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop.Views"
+        xmlns:vm="clr-namespace:Desktop.ViewModels"
+        mc:Ignorable="d"
+        Title="CompaniesView" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Base/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:CompaniesViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Margin="80 0">
+            <TextBlock Style="{StaticResource title}">Компании</TextBlock>
+            <ListView ItemsSource="{Binding Companies}" Height="360">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="90">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="450"/>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Style="{StaticResource company__name}" Text="{Binding Name}"/>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource company__inn-label}">ИНН: </TextBlock>
+                                <TextBlock Style="{StaticResource company__inn}" Text="{Binding INN}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Row="2" Style="{StaticResource company__description}" Text="{Binding Description}"/>
+                            <Button Grid.Column="1" Grid.Row="0" Click="Button_Click" Tag="{Binding Id}" Style="{StaticResource company__button}">Открыть</Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

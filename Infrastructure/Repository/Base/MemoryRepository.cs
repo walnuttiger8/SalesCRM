@@ -22,9 +22,9 @@ namespace Infrastructure.Repository.Base
                 _items.Remove(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _items;
+            return _items.AsQueryable();
         }
 
         public T? GetById(Guid id)

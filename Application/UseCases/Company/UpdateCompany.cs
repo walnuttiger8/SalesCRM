@@ -4,8 +4,8 @@ using Domain.Models;
 
 namespace Application.UseCases.CompanyUseCases
 {
-    public class UpdateCompany : UpdateModelUseCase<Company>
+    public class UpdateCompany : UpdateModelUseCase<Domain.Models.Company>
     {
-        public UpdateCompany(IRepository<Company> repository) : base(repository) { }
+        public UpdateCompany(IRepository<Domain.Models.Company> repository) : base(repository) { }
     }
 }

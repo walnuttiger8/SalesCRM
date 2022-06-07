@@ -19,9 +19,9 @@ namespace Infrastructure.Repository.Base
             return _dbContext.Set<T>().FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _dbContext.Set<T>().ToList();
+            return _dbContext.Set<T>();
         }
 
         public void Add(T entity)
